@@ -31,7 +31,7 @@ and currency info https://openexchangerates.org/api/currencies.json
 ```
 **Error Handling:**
 - Possible 500 (Internal Server Error) error:
-  - If the serever is requested but there is something wrong with the internal files returns
+  - If the server is requested but there is something wrong with the internal files returns
     error with the message: Theres Something Wrong with the Server
 - Possible 400 (Invalid Request) error:
   - If the entered currency is not a currency code, returns an error with the message:
@@ -54,32 +54,32 @@ and currency info https://openexchangerates.org/api/currencies.json
 **Example Request:** /currencies
 
 **Example Response:**
-{ AED: {
-        currencyName: "United Arab Emirates Dirham",
-        picSRC: "Files/flags/aed.png"
+```json
+{ "AED": {
+        "currencyName": "United Arab Emirates Dirham",
+        "picSRC": "Files/flags/aed.png"
   },
-  AFN: {
-        currencyName: "Afghan Afghani",
-        picSRC: "Files/flags/afn.png"
+  "AFN": {
+        "currencyName": "Afghan Afghani",
+        "picSRC": "Files/flags/afn.png"
   },
-  ALL: {
-        currencyName: "Albanian Lek",
-        picSRC: "Files/flags/all.png"
+  "ALL": {
+        "currencyName": "Albanian Lek",
+        "picSRC": "Files/flags/all.png"
   },
-  AMD: {
-        currencyName: "Armenian Dram",
-        picSRC: "Files/flags/amd.png"
+  "AMD": {
+        "currencyName": "Armenian Dram",
+        "picSRC": "Files/flags/amd.png"
   },
-  ANG: {
-        currencyName: "Netherlands Antillean Guilder",
-        picSRC: "Files/flags/ang.png"
-  },
-  ....... //more JS Object on More Countries
-}
+  "ANG": {
+        "currencyName": "Netherlands Antillean Guilder",
+        "picSRC": "Files/flags/ang.png"
+  }
+} //more JS Object on More Countries
 
 **Error Handling:**
 - Possible 500 (Internal Server Error) error:
-  - If the serever is requested but there is something wrong with the internal files returns
+  - If the server is requested but there is something wrong with the internal files returns
     error with the message: Theres Something Wrong with the Server
 
 
@@ -100,5 +100,5 @@ Number of Exchange Rates : 161 Number of Currency Rates : 170
 
 **Error Handling:**
 - Possible 500 (Internal Server Error) error:
-  - If the serever is requested but there is something wrong with the internal files returns
+  - If the server is requested but there is something wrong with the internal files returns
     error with the message: Theres Something Wrong with the Server
