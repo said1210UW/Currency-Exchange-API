@@ -14,7 +14,7 @@ body {
   color: #2F3A8F;
 }
 
-header, main, #convert-section, #exchange-info, .currency-bar {
+header, main, #convert-section, #exchange-info, .currency-bar, .convert-info, .input-info, .input-container {
   display: flex;
 }
 
@@ -26,7 +26,7 @@ main, button {
   margin-top: 100px;
 }
 
-main, #convert-section {
+main{
   flex-wrap: wrap;
 }
 
@@ -48,7 +48,7 @@ header, button, .convert-info {
   border-radius: 15px;
 }
 
-main, #exchange-info, .currency-bar {
+main, #exchange-info {
   justify-content: space-evenly;
 }
 
@@ -57,8 +57,8 @@ main {
 }
 
 #convert-section {
-  margin-top: 2.5em;
-  margin-left: 10px;
+  justify-content: space-between;
+  margin-left: 0.75em;
 }
 
 header {
@@ -77,6 +77,10 @@ footer {
 .convert-info > p {
   margin-right: auto;
   margin-left: auto;
+}
+
+.convert-info, .input-info{
+  flex-direction: column;
 }
 
 .convert-info {
@@ -106,10 +110,6 @@ button:hover, .convert-info, .currency-bar:hover, .currency-barSelected {
   box-shadow:
     0 4px 8px 0 rgba(0, 0, 0, 0.2),
     0 6px 20px 0rgba(0, 0, 0, 0.19);
-}
-
-.input-info {
-  margin-right: 2em;
 }
 
 h1 {
@@ -156,18 +156,21 @@ h1 {
 .currency-bar {
   background-color: rgb(216, 211, 211);
   color: #1b2361;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-bottom: 20px;
   border-radius: 14px;
   transition-property: all;
   transition-duration: 350ms;
+  align-items: center; /* Vertically aligns the flag and text */
+  justify-content: space-between; /* Aligns items to the left */
+  margin-bottom: 0.625em; /* 10px, space between items */
+  padding: 0.3125em; /* Padding for spacing between items */
+  flex-wrap: wrap; 
 }
 
-.currency-bar img {
-  padding-top: 20px;
-  width: 100px;
-  height: 50px;
+.currency-flag {
+  width: 2.5em;
+  height: auto;
+  margin-right: 0.625em;
+  max-width: 3em;
 }
 
 .hidden {
@@ -179,4 +182,17 @@ footer {
   left: 0;
   bottom: 0;
   background-color: black;
+}
+
+#dollar-input {
+  height: 3em;
+}
+
+#currency-list {
+  height: 4em;
+}
+
+.input-container {
+  align-items: center;
+  justify-content: space-evenly;
 }

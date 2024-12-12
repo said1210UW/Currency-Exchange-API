@@ -87,7 +87,7 @@
   function createCurrencyBar(currencyInfo, currencyCode) {
     let bar = document.createElement('article');
     let flag = document.createElement('img');
-    let currName = document.createElement('p');
+    let currName = document.createElement('span');
     let currCode = document.createElement('p');
 
     bar.appendChild(flag);
@@ -96,8 +96,12 @@
 
     flag.src = currencyInfo['picSRC'];
     flag.alt = currencyInfo['currencyName'];
+    flag.classList.add("currency-flag");
 
+    currName.classList.add("currency-name");
     currName.textContent = currencyInfo['currencyName'];
+    
+    currCode.classList.add("currency-code");
     currCode.textContent = currencyCode;
 
     bar.classList.add("currency-bar");

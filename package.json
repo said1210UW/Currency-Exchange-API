@@ -1,5 +1,5 @@
 {
-  "name": "cp4-node-api-said1210",
+  "name": "express",
   "version": "1.0.0",
   "description": "For your fourth Creative Project, you will create your own Node.js web service available for use with AJAX and fetch. Once again, as a Creative Project, you have freedom to have more ownership in your work, as long as you meet the requirements listed below.",
   "main": "app.js",
@@ -14,5 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"
-  }
+  },
+  "devDependencies": {}
 }

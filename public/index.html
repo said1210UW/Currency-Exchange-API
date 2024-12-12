@@ -24,17 +24,19 @@
     </header>
     <main>
       <section class="convert-info">
-        <h2>Exchange Info</h2>
-        <p>Enter the Amount of US Dollars You're Looking Convert</p>
+        <h2>Exchange Input</h2>
         <section id="convert-section">
           <article class="input-info">
-            <h3>Amount</h3>
-            <input type="number" id="dollar-input" placeholder="Enter Amount....."  required>
-            <img src="usd.png" alt="United States Flag">
+            <h3>Amount of Dollars</h3>
+            <section class="input-container">
+               <input type="number" id="dollar-input" placeholder="Enter Amount....."  required>
+               <img src="usd.png" alt="United States Flag">
+            </section>
           </article>
           <article class="input-info">
-            <h3>To</h3>
-            <select id="currency-list">
+            <h3>Amount of Foreign Currency</h3>
+            <section class="input-container">
+             <select id="currency-list">
               <option value="USD" label="US dollar">USD</option>
               <option value="EUR" label="Euro">EUR</option>
               <option value="JPY" label="Japanese yen">JPY</option>
@@ -200,7 +202,10 @@
               <option value="ZAR" label="South African rand">ZAR</option>
               <option value="ZMW" label="Zambian kwacha">ZMW</option>
               <option value="ZWB" label="Zimbabwean bonds">ZWB</option>
-            </select>
+             </select>
+             <img src="flags/eur.png" alt="EUR">             
+            </section>
+
           </article>
         </section>
         <button id="checkbutton">Enter</button>
