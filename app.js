@@ -24,7 +24,7 @@ async function fetchAndSaveExchangeRates() {
 
     // Save the exchange rate data to exchangerate.json
     await fs.writeFile("exchangerate.json", JSON.stringify(exchangeRates, null, 2));
-    console.log("Exchange rates saved successfully.");
+    //console.log("Exchange rates saved successfully.");
     isExchangeRateFetched = true;
     
   } catch (error) {
@@ -168,7 +168,6 @@ app.listen(PORT, async () => {
 
   // Fetch and save exchange rates when the server starts
   while (isExchangeRateFetched === false) {
-    console.log("Fetching exchange rates...");
     await fetchAndSaveExchangeRates();
   }
   
