@@ -115,7 +115,7 @@ button:hover, .convert-info, .currency-bar:hover, .currency-barSelected {
 h1 {
   padding-top: 100px;
   font-size: 40pt;
-  text-decoration: solid underline 5px #FE7E6D;
+  text-align: center;
 }
 
 .material-icons-outlined {
@@ -173,6 +173,10 @@ h1 {
   max-width: 3em;
 }
 
+.input-info > h3 {
+  padding-left: 0.5em;
+}
+
 .hidden {
   display: none;
 }
@@ -195,4 +199,12 @@ footer {
 .input-container {
   align-items: center;
   justify-content: space-evenly;
+}
+
+button:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-3px); /* Slight lift effect */
+  transition-property: all;
+  transition-duration: 350ms;
+  background-color: #4450b1;
 }

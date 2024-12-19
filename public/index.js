@@ -95,7 +95,7 @@
     bar.appendChild(currCode);
 
     flag.src = currencyInfo['picSRC'];
-    flag.alt = currencyInfo['currencyName'];
+    flag.alt = currencyInfo['abbrv'];
     flag.classList.add("currency-flag");
 
     currName.classList.add("currency-name");
@@ -124,6 +124,15 @@
         options[i].selected = false;
       }
     }
+
+    // update flag
+    let foreginFlag = id("foreign-flag");
+    foreginFlag.src = currButton.firstChild.src;
+    foreginFlag.alt = currButton.lastChild.textContent;
+
+    // update h3 exchange currency
+    let exchangeCurrH3 = qs("#foreign > h3");
+    exchangeCurrH3.textContent = String(currButton.lastChild.textContent);
   }
 
   /**
@@ -161,7 +170,9 @@
     let inputAmount = exchangeInfo[2];
 
     qs("#dollars > p").textContent = "$ " + inputAmount;
-    qs("#foreign > h3").textContent = exchangeJSON["Currency"];
+    qs("#foreign > h3").textContent = exchangeJSON["abbr"];
+    qsa(".input-container > img")[1].src = exchangeJSON["Flag-Pic"];
+    
 
     let currencyName = exchangeJSON["Currency"];
     if (currencyName === "Euro") {

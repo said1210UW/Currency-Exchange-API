@@ -8,8 +8,29 @@
 
 "use strict";
 const express = require("express"); // Dependency used to handle HTTP Request
-const app = express();
+const axios = require("axios");  // To make HTTP requests to the API
 const fs = require("fs").promises; // Using FS to Read Files
+const app = express();
+
+const EXCHANGE_API_URL = "https://openexchangerates.org/api/latest.json?app_id=3b1817fd9b8e4e6b8f5f0adf0991f1a3";
+
+let isExchangeRateFetched = false;
+
+// Fetch new exchange rates and save as exchangerate.json
+async function fetchAndSaveExchangeRates() {
+  try {
+    const response = await axios.get(EXCHANGE_API_URL);
+    const exchangeRates = response.data;
+
+    // Save the exchange rate data to exchangerate.json
+    await fs.writeFile("exchangerate.json", JSON.stringify(exchangeRates, null, 2));
+    console.log("Exchange rates saved successfully.");
+    isExchangeRateFetched = true;
+    
+  } catch (error) {
+    console.error("Error fetching exchange rates:", error.message);
+  }
+}
 
 // Returns Exchange Rates for various Currenc
 app.get("/exchange", async function(req, res) {
@@ -25,7 +46,8 @@ app.get("/exchange", async function(req, res) {
         res.json({
           'Currency': currencyName,
           'exchangeRate': exchangeRate,
-          'Flag-Pic': flagSRC
+          'Flag-Pic': flagSRC,
+          "abbr": currency
         });
       }
     } else {
@@ -46,7 +68,7 @@ app.get("/currencies", async function(req, res) {
     let flagSRC = "";
     for (let i = 0; i < fileKeys.length; i++) {
       flagSRC = "flags/" + fileKeys[i].toLowerCase() + ".png";
-      currencyInfo[fileKeys[i]] = {"currencyName": currnameFile[fileKeys[i]], "picSRC": flagSRC};
+      currencyInfo[fileKeys[i]] = {"currencyName": currnameFile[fileKeys[i]], "picSRC": flagSRC, "abbrv" :fileKeys[i].toUpperCase()};
     }
     res.json(currencyInfo);
   } catch (err) {
@@ -139,4 +161,15 @@ async function countStuff() {
 
 app.use(express.static('public'));
 const PORT = process.env.PORT || 8000; // To have port changed with class software
-app.listen(PORT);
+
+// Initialize the server and fetch the exchange rates when the server starts
+app.listen(PORT, async () => {
+  console.log("Server is running on port 8000");
+
+  // Fetch and save exchange rates when the server starts
+  while (isExchangeRateFetched === false) {
+    console.log("Fetching exchange rates...");
+    await fetchAndSaveExchangeRates();
+  }
+  
+});
