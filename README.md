@@ -1,7 +1,7 @@
 # CurrencyExchange API, API Documentation
 The CurrencyExchange API provides information regarding exhanges rates
-of a said currency rate with respect to the United States Dollar. It should
-be noted the following information is accurate as of Feburary 22nd 2022.
+of a said currency rate with respect to the United States Dollar. The Data is upto date or at the very least yesterday's data is used
+
 The data used in this project was retrived such as flags https://github.com/transferwise/currency-flags/
 and currency info https://openexchangerates.org/api/currencies.json
 
